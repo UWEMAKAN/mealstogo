@@ -6,34 +6,42 @@ import {
   View,
   SafeAreaView,
   Platform,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 
 const isAndroid = Platform.OS === 'android';
 
-export default function App() {
+const App = function () {
   return (
     <>
-      <SafeAreaView
-        style={{flex: 1, marginTop: isAndroid ? StatusBar.currentHeight : 0}}
-      >
-        <View style={{padding: 16, backgroundColor: 'green'}}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.searchBar}>
           <Text>search</Text>
         </View>
-        <View style={{flex: 1, padding: 16, backgroundColor: 'blue'}}>
+        <View style={styles.list}>
           <Text>list</Text>
         </View>
       </SafeAreaView>
+      {/* eslint-disable-next-line react/style-prop-object */}
       <ExpoStatusBar style="auto" />
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+    marginTop: isAndroid ? StatusBar.currentHeight : 0,
+  },
+  searchBar: {
+    padding: 16,
+    backgroundColor: 'green',
+  },
+  list: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: 'blue',
+  },
 });
+
+export default App;

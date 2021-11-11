@@ -1,47 +1,39 @@
-import {StatusBar as ExpoStatusBar} from 'expo-status-bar';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import React from 'react';
+import { View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
 import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-} from 'react-native';
+  useFonts as useOswaldFonts,
+  Oswald_400Regular,
+} from '@expo-google-fonts/oswald';
+import {
+  useFonts as useLatoFonts,
+  Lato_400Regular,
+} from '@expo-google-fonts/lato';
 
-const isAndroid = Platform.OS === 'android';
+import { RestaurantsScreen, theme } from './src';
 
-const App = function () {
+const App = () => {
+  const [oswaldLoaded] = useOswaldFonts({
+    Oswald_400Regular,
+  });
+  const [latoLoaded] = useLatoFonts({
+    Lato_400Regular,
+  });
+
+  if (!oswaldLoaded || !latoLoaded) {
+    return <View />;
+  }
+
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.searchBar}>
-          <Text>search</Text>
-        </View>
-        <View style={styles.list}>
-          <Text>list</Text>
-        </View>
-      </SafeAreaView>
+      <ThemeProvider theme={theme}>
+        <RestaurantsScreen />
+      </ThemeProvider>
       {/* eslint-disable-next-line react/style-prop-object */}
       <ExpoStatusBar style="auto" />
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: isAndroid ? StatusBar.currentHeight : 0,
-  },
-  searchBar: {
-    padding: 16,
-    backgroundColor: 'green',
-  },
-  list: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: 'blue',
-  },
-});
 
 export default App;

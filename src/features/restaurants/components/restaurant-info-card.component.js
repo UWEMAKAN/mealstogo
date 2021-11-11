@@ -13,7 +13,7 @@ import {
   Icon,
 } from './restaurant-info-card.styles';
 
-export const RestaurantInfoCard = ({ restaurant }) => {
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = 'Mega Chicken',
     icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Colors } from 'react-native-paper';
 
 import { AuthenticationContext } from '../../../services';
@@ -11,51 +11,83 @@ import {
   AuthInput,
   LoadingContainer,
   Loading,
+  ErrorContainer,
+  validateEmail,
 } from '../components';
+
+const emailError = new Error('Invalid email');
+const passwordError = new Error('Password must be at least 6 characters');
 
 export const LoginScreen = ({ navigation }) => {
   const { onLogin, error, isLoading } = useContext(AuthenticationContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [validationError, setValidationError] = useState(null);
+
+  useEffect(() => {
+    setValidationError(error);
+  }, [error]);
+
   return (
     <AccountBackground>
       <AccountCover />
-      <Text variant="title">MealsToGo</Text>
+      <Text variant="title">Meals To Go</Text>
       <AccountContainer>
+        <Spacer position="bottom" size="large">
+          <AuthInput
+            keyboardType="email-address"
+            autoCapitalize="none"
+            textContentType="emailAddress"
+            label="Email"
+            value={email}
+            onChangeText={(text) => {
+              setEmail(text);
+              setValidationError(null);
+            }}
+            onEndEditing={() =>
+              !validateEmail(email)
+                ? setValidationError(emailError)
+                : setValidationError(null)
+            }
+          />
+        </Spacer>
+        <Spacer position="bottom" size="medium">
+          <AuthInput
+            secureTextEntry
+            label="Password"
+            autoCapitalize="none"
+            textContentType="password"
+            value={password}
+            onChangeText={(text) => {
+              setPassword(text);
+              setValidationError(null);
+            }}
+            onEndEditing={() =>
+              password.length < 6
+                ? setValidationError(passwordError)
+                : setValidationError(null)
+            }
+          />
+        </Spacer>
+        <Spacer position="bottom" size="medium">
+          <ErrorContainer>
+            <Text variant="error">
+              {validationError && validationError.message}
+            </Text>
+          </ErrorContainer>
+        </Spacer>
         {!isLoading ? (
-          <>
-            <Spacer position="bottom" size="large">
-              <AuthInput
-                keyboardType="email-address"
-                autoCapitalize="none"
-                textContentType="emailAddress"
-                label="Email"
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-              />
-            </Spacer>
-            <Spacer position="bottom" size="medium">
-              <AuthInput
-                secureTextEntry
-                label="Password"
-                autoCapitalize="none"
-                textContentType="password"
-                secure
-                value={password}
-                onChangeText={(text) => setPassword(text)}
-              />
-            </Spacer>
-            <Spacer position="bottom" size="medium">
-              <Text variant="error">{error && error.message}</Text>
-            </Spacer>
-            <AuthButton
-              icon="lock-open-outline"
-              mode="contained"
-              onPress={() => onLogin(email, password)}
-            >
-              Login
-            </AuthButton>
-          </>
+          <AuthButton
+            icon="lock-open-outline"
+            mode="contained"
+            onPress={() => {
+              if (!email) setValidationError(emailError);
+              else if (password.length < 6) setValidationError(passwordError);
+              else !validationError && onLogin(email, password);
+            }}
+          >
+            Login
+          </AuthButton>
         ) : (
           <LoadingContainer>
             <Loading size={50} animating={true} color={Colors.blue300} />

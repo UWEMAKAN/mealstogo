@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
+import React from 'react';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -13,14 +13,7 @@ import {
 } from '@expo-google-fonts/lato';
 import { getApps, initializeApp } from 'firebase/app';
 
-import {
-  theme,
-  RestaurantsContextProvider,
-  LocationContextProvider,
-  FavouritesContextProvider,
-  AuthenticationContextProvider,
-  Navigation,
-} from './src';
+import { theme, AuthenticationContextProvider, Navigation } from './src';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBa94O9-RjlKyINm38litQZZDeaAq7tlXc',
@@ -43,8 +36,6 @@ const App = () => {
     Lato_400Regular,
   });
 
-  useEffect(() => {}, []);
-
   if (!oswaldLoaded || !latoLoaded) {
     return <View />;
   }
@@ -53,13 +44,7 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
       {/* eslint-disable-next-line react/style-prop-object */}

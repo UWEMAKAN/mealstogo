@@ -1,4 +1,5 @@
 import React from 'react';
+import LottieView from 'lottie-react-native';
 
 import { Spacer, Text } from '../../../components';
 import {
@@ -6,13 +7,24 @@ import {
   AccountCover,
   AccountContainer,
   AuthButton,
+  AnimationWrapper,
 } from '../components';
+import source from '../../../../assets/watermelon.json';
 
 export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
-      <Text variant="title">MealsToGo</Text>
+      <AnimationWrapper>
+        <LottieView
+          key="animation"
+          autoPlay
+          loop
+          resizeMode="cover"
+          source={source}
+        />
+      </AnimationWrapper>
+      <Text variant="title">Meals To Go</Text>
       <AccountContainer>
         <AuthButton
           icon="lock-open-outline"
@@ -25,7 +37,7 @@ export const AccountScreen = ({ navigation }) => {
         </AuthButton>
         <Spacer position="top" size="large">
           <AuthButton
-            icon="email"
+            icon="account-outline"
             mode="contained"
             onPress={() => {
               navigation.navigate('Register');

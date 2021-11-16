@@ -1,19 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { FlatList, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import styled from 'styled-components/native';
 
 import { RestaurantsContext, FavouritesContext } from '../../../services';
 import { Spacer, SafeArea, FavouritesBar } from '../../../components';
-import { RestaurantInfoCard, Search } from '../components';
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    paddingBottom: 16,
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-})``;
+import { RestaurantInfoCard, Search, RestaurantsList } from '../components';
 
 const LoadingContainer = styled.View`
   position: absolute;
@@ -49,7 +41,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           <Loading size={50} animating={true} color={Colors.blue300} />
         </LoadingContainer>
       ) : (
-        <RestaurantList
+        <RestaurantsList
           data={restaurants}
           renderItem={({ item }) => (
             <TouchableOpacity

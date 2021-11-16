@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 import { locationRequest, locationTransform } from './location.service';
 

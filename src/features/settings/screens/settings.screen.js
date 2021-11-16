@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useContext } from 'react';
 import styled from 'styled-components/native';
-import { Button, List, Avatar } from 'react-native-paper';
+import { List, Avatar } from 'react-native-paper';
 
 import { SafeArea, Text, Spacer } from '../../../components';
 import { AuthenticationContext } from '../../../services';
@@ -17,6 +17,7 @@ const SettingsIcon = styled(List.Icon).attrs((props) => ({
 }))``;
 
 const AvatarContainer = styled.View`
+  margin-top: ${({ theme }) => theme.space[4]};
   align-items: center;
 `;
 
@@ -29,7 +30,7 @@ const AvatarIcon = styled(Avatar.Icon).attrs(({ theme }) => ({
 export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
   return (
-    <SafeArea header={true}>
+    <SafeArea>
       <AvatarContainer>
         <AvatarIcon />
         <Spacer position="top" size="large">

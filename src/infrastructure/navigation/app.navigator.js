@@ -35,7 +35,7 @@ export const AppNavigator = () => {
       <LocationContextProvider>
         <RestaurantsContextProvider>
           <Tab.Navigator
-            initialRouteName="Settings"
+            initialRouteName="Restaurants"
             screenOptions={createScreenOptions}
           >
             <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />

@@ -4,7 +4,12 @@ import { ActivityIndicator, Colors } from 'react-native-paper';
 import styled from 'styled-components/native';
 
 import { RestaurantsContext, FavouritesContext } from '../../../services';
-import { Spacer, SafeArea, FavouritesBar } from '../../../components';
+import {
+  Spacer,
+  SafeArea,
+  FavouritesBar,
+  FadeInView,
+} from '../../../components';
 import { RestaurantInfoCard, Search, RestaurantsList } from '../components';
 
 const LoadingContainer = styled.View`
@@ -50,7 +55,9 @@ export const RestaurantsScreen = ({ navigation }) => {
               }
             >
               <Spacer position="bottom" size="large">
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </Spacer>
             </TouchableOpacity>
           )}

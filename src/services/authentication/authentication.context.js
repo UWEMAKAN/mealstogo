@@ -53,6 +53,22 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
+  // const value = useMemo(
+  //   () => ({
+  //     isAuthenticated: !!user,
+  //     isLoading,
+  //     user,
+  //     error,
+  //     onLogin,
+  //     onLogout: () => {
+  //       setUser(null);
+  //       signOut(auth);
+  //     },
+  //     onRegister,
+  //   }),
+  //   [auth, error, isLoading, user],
+  // );
+
   return (
     <AuthenticationContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values

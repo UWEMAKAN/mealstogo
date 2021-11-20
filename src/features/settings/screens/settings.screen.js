@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useContext } from 'react';
@@ -32,14 +31,12 @@ const AvatarIcon = styled(Avatar.Icon).attrs(({ theme }) => ({
 const ProfilePhoto = styled(Avatar.Image).attrs({
   size: 150,
 })`
-  scaleX: -1;
+  transform: scale(-1, 1);
 `;
 
 export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
   const { photo } = useContext(PhotosContext);
-
-  console.log(photo);
 
   return (
     <SafeArea>

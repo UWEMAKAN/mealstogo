@@ -1,0 +1,97 @@
+[debug] [2021-11-20T13:20:37.829Z] ----------------------------------------------------------------------
+[debug] [2021-11-20T13:20:37.835Z] Command:       /home/sasori/.nvm/versions/node/v16.13.0/bin/node /home/sasori/.nvm/versions/node/v16.13.0/bin/firebase deploy --only functions
+[debug] [2021-11-20T13:20:37.837Z] CLI Version:   9.23.0
+[debug] [2021-11-20T13:20:37.837Z] Platform:      linux
+[debug] [2021-11-20T13:20:37.837Z] Node Version:  v16.13.0
+[debug] [2021-11-20T13:20:37.839Z] Time:          Sat Nov 20 2021 14:20:37 GMT+0100 (West Africa Standard Time)
+[debug] [2021-11-20T13:20:37.839Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-20T13:20:38.061Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-20T13:20:38.061Z] > authorizing via signed-in user (uwemakan@gmail.com)
+[debug] [2021-11-20T13:20:38.062Z] [iam] checking project mealstogo-2fc9c for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2021-11-20T13:20:38.065Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-11-20T13:20:38.066Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-20T13:20:38.497Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sat, 20 Nov 2021 13:20:38 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:20:38.595Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-2fc9c:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2021-11-20T13:20:45.447Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:20:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1099","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:20:45.449Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/mealstogo-2fc9c/serviceAccounts/mealstogo-2fc9c@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-11-20T13:20:51.917Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:20:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mealstogo-2fc9c'...
+[info] 
+[info] i  deploying functions 
+[debug] [2021-11-20T13:20:51.931Z] Validating nodejs source
+[debug] [2021-11-20T13:21:02.560Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2021-11-20T13:21:02.561Z] Building nodejs source
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  functions: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2021-11-20T13:21:02.565Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:02.566Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:02.567Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:02.568Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/artifactregistry.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:09.679Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:09.905Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  functions: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2021-11-20T13:21:09.908Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/artifactregistry.googleapis.com:enable  
+ 
+[debug] [2021-11-20T13:21:10.401Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2021-11-20T13:21:10.404Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/cloudbuild.googleapis.com:enable  
+ 
+[debug] [2021-11-20T13:21:10.493Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:09 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2021-11-20T13:21:12.697Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:12 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:12.918Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:12 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:22.701Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/artifactregistry.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:22.921Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mealstogo-2fc9c/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-11-20T13:21:25.624Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:24 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  functions: required API artifactregistry.googleapis.com is enabled 
+[debug] [2021-11-20T13:21:26.507Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2021-11-20T13:21:26.511Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mealstogo-2fc9c/adminSdkConfig  
+ 
+[debug] [2021-11-20T13:21:27.245Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:27.248Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/mealstogo-2fc9c/configs  
+ 
+[debug] [2021-11-20T13:21:33.542Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:33.545Z] Analyzing nodejs backend spec
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged functions (46.47 KB) for uploading 
+[debug] [2021-11-20T13:21:34.383Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/mealstogo-2fc9c/locations/-/functions  
+ 
+[debug] [2021-11-20T13:21:40.645Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 20 Nov 2021 13:21:40 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-20T13:21:40.655Z] [functions] found 2 new HTTP functions, testing setIamPolicy permission...
+[debug] [2021-11-20T13:21:40.656Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mealstogo-2fc9c:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.setIamPolicy"]}

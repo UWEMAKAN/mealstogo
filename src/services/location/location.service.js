@@ -1,9 +1,10 @@
 import camelize from 'camelize';
 
+import { host } from '../../utils';
+
 export const locationRequest = (searchTerm) => {
-  return fetch(
-    `https://mealstogo.loca.lt/mealstogo-2fc9c/us-central1/geoCode?city=${searchTerm}`,
-  ).then((res) => res.json());
+  const url = `${host}/geoCode?city=${searchTerm}`;
+  return fetch(url).then((res) => res.json());
 };
 
 export const locationTransform = (result) => {

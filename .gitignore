@@ -14,3 +14,7 @@ web-build/
 .DS_Store
 
 */node_modules/**/*
+.runtimeconfig.json
+ui-debug.log
+app.config.js
+firebase-debug.log

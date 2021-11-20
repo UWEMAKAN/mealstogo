@@ -13,10 +13,15 @@ import {
 } from '@expo-google-fonts/lato';
 import { getApps, initializeApp } from 'firebase/app';
 
-import { theme, AuthenticationContextProvider, Navigation } from './src';
+import {
+  theme,
+  AuthenticationContextProvider,
+  Navigation,
+  AUTH_KEY,
+} from './src';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBa94O9-RjlKyINm38litQZZDeaAq7tlXc',
+  apiKey: AUTH_KEY,
   authDomain: 'mealstogo-2fc9c.firebaseapp.com',
   projectId: 'mealstogo-2fc9c',
   storageBucket: 'mealstogo-2fc9c.appspot.com',

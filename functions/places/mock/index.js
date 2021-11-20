@@ -3,7 +3,7 @@ const chicago = require('./chicago');
 const toronto = require('./toronto');
 const san_francisco = require('./san_francisco');
 
-exports.mocks = {
+const mocks = {
   '51.219448,4.402464': antwerp,
   '43.653225,-79.383186': toronto,
   '41.878113,-87.629799': chicago,
@@ -20,9 +20,15 @@ const mockImages = [
   'https://www.foodiesfeed.com/wp-content/uploads/2019/02/pizza-ready-for-baking-600x400.jpg',
 ];
 
-exports.addMockedImage = (res) => {
+const addMockedImage = (res) => {
   const imageIndex = Math.ceil(Math.random() * (mockImages.length - 1));
   const photo = mockImages[imageIndex];
   const restaurant = { ...res, photos: [photo] };
   return restaurant;
+};
+
+module.exports = {
+  mocks,
+  mockImages,
+  addMockedImage,
 };

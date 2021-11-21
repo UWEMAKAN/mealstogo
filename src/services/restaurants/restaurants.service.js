@@ -1,9 +1,9 @@
 import camelize from 'camelize';
 
-import { host } from '../../utils';
+import { host, isMock } from '../../utils';
 
 export const restaurantsRequest = (location) => {
-  const url = `${host}/placesNearby?location=${location}`;
+  const url = `${host}/placesNearby?location=${location}&mock=${isMock}`;
   return fetch(url).then((res) => res.json());
 };
 

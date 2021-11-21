@@ -1,9 +1,9 @@
 import camelize from 'camelize';
 
-import { host } from '../../utils';
+import { host, isMock } from '../../utils';
 
 export const locationRequest = (searchTerm) => {
-  const url = `${host}/geoCode?city=${searchTerm}`;
+  const url = `${host}/geoCode?city=${searchTerm}&mock=${isMock}`;
   return fetch(url).then((res) => res.json());
 };
 

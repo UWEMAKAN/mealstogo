@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { StatusBar } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components/native';
 
@@ -7,7 +8,7 @@ import { LocationContext } from '../../../services';
 const SearchBarContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
   position: absolute;
-  top: 40px;
+  top: ${StatusBar.currentHeight}px;
   width: 100%;
   z-index: 1;
 `;

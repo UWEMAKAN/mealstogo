@@ -27,21 +27,21 @@ exports.placesRequest = (req, res, client) => {
     }
     return res.json(data);
   }
-  return client
-    .placesNearby({
-      params: {
-        location,
-        radius: 1500,
-        type: 'restaurant',
-        key: functions.config().google.key,
-      },
-      timeout: 10000,
-    })
-    .then((response) => {
-      response.data.results = response.data.results.map(addGoogleImage);
-      return res.json(response.data);
-    })
-    .catch((e) => {
-      return res.status(400).send(e.response.data.error_message);
-    });
+  // return client
+  //   .placesNearby({
+  //     params: {
+  //       location,
+  //       radius: 1500,
+  //       type: 'restaurant',
+  //       key: functions.config().google.key,
+  //     },
+  //     timeout: 10000,
+  //   })
+  //   .then((response) => {
+  //     response.data.results = response.data.results.map(addGoogleImage);
+  //     return res.json(response.data);
+  //   })
+  //   .catch((e) => {
+  //     return res.status(400).send(e.response.data.error_message);
+  //   });
 };

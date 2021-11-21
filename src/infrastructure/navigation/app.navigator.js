@@ -2,17 +2,20 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import { MapScreen } from '../../features';
 import { RestaurantsNavigator } from './restaurants.navigator';
-import {
-  RestaurantsContextProvider,
-  LocationContextProvider,
-  FavouritesContextProvider,
-} from '../../services';
 import { SettingsNavigator } from './settings.navigator';
+import { CheckoutNavigator } from './checkout.navigator';
+import { CheckoutScreen, MapScreen } from '../../features';
+import {
+  CartContextProvider,
+  FavouritesContextProvider,
+  LocationContextProvider,
+  RestaurantsContextProvider,
+} from '../../services';
 
 const TAB_ICON = {
   Restaurants: 'md-restaurant',
+  Checkout: 'md-cart',
   Map: 'md-map',
   Settings: 'md-settings',
 };
@@ -34,14 +37,17 @@ export const AppNavigator = () => {
     <FavouritesContextProvider>
       <LocationContextProvider>
         <RestaurantsContextProvider>
-          <Tab.Navigator
-            initialRouteName="Restaurants"
-            screenOptions={createScreenOptions}
-          >
-            <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-            <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsNavigator} />
-          </Tab.Navigator>
+          <CartContextProvider>
+            <Tab.Navigator
+              initialRouteName="Restaurants"
+              screenOptions={createScreenOptions}
+            >
+              <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+              <Tab.Screen name="Checkout" component={CheckoutNavigator} />
+              <Tab.Screen name="Map" component={MapScreen} />
+              <Tab.Screen name="Settings" component={SettingsNavigator} />
+            </Tab.Navigator>
+          </CartContextProvider>
         </RestaurantsContextProvider>
       </LocationContextProvider>
     </FavouritesContextProvider>

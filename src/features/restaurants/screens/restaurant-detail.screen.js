@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { List } from 'react-native-paper';
 import styled from 'styled-components/native';
 
-import { SafeArea } from '../../../components';
-import { RestaurantInfoCard } from '../components';
+import { SafeArea, Spacer } from '../../../components';
+import { RestaurantInfoCard, OrderButton } from '../components';
+import { CartContext } from '../../../services';
 
 const BreakfastIcon = (props) => <List.Icon {...props} icon="bread-slice" />;
 const LunchIcon = (props) => <List.Icon {...props} icon="hamburger" />;
@@ -26,11 +27,12 @@ const ListItem = styled(List.Item).attrs(({ theme }) => ({
   },
 }))``;
 
-export const RestaurantDetail = ({ route }) => {
+export const RestaurantDetail = ({ route, navigation }) => {
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);
   const [lunchExpanded, setLunchExpanded] = useState(false);
   const [dinnerExpanded, setDinnerExpanded] = useState(false);
   const [drinksExpanded, setDrinksExpanded] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
   const { restaurant } = route.params;
   return (
@@ -79,6 +81,18 @@ export const RestaurantDetail = ({ route }) => {
           <ListItem title="Fanta" />
         </ListAccordion>
       </ScrollView>
+      <Spacer position="bottom" size="xlarge">
+        <OrderButton
+          icon="cash-usd"
+          mode="contained"
+          onPress={() => {
+            addToCart({ item: 'Special', price: 1299 }, restaurant);
+            navigation.navigate('Checkout');
+          }}
+        >
+          Order special only $12.99
+        </OrderButton>
+      </Spacer>
     </SafeArea>
   );
 };

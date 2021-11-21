@@ -2,7 +2,9 @@
 
 export default ({ config }) => {
   const extra = {
-    AUTH_KEY: 'Your Firebase Auth API Key goes here',
+    FIREBASE_AUTH_KEY: 'Firebase Auth Key',
+    STRIPE_KEY_TEST: 'Stripe Publishable Test Key',
+    STRIPE_KEY_LIVE: 'Stripe Publishable Live Key',
   };
   return {
     ...config,
